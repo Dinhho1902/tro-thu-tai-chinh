@@ -11,10 +11,10 @@ st.title("AI Personal Finance Planner 💰")
 st.caption("Manage your finances with AI Personal Finance Manager by creating personalized budgets, investment plans, and savings strategies using GPT-4o")
 
 # Get OpenAI API key from user
-openai_api_key = st.write("Secret Key", st.secrets["openai_secret_key"])
+openai_api_key = st.secrets["openai_secret_key"]
 
 # Get SerpAPI key from the user
-serp_api_key = openai_api_key = st.write("Secret Key", st.secrets["serp_api_key"])
+serp_api_key = openai_api_key = st.secrets["serp_api_key"]
 
 if openai_api_key and serp_api_key:
     researcher = Agent(
