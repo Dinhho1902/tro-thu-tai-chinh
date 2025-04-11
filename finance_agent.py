@@ -61,7 +61,7 @@ if openai_api_key:
     )
 
     # Input fields for the user's financial goals and current financial situation
-    financial_goals = st.text_input("Mục tiêu tài chính của bạn")
+    financial_goals = st.text_input("Mục tiêu tài chính của bạn trong 5 năm tới (tổng giá trị tài sản)")
     current_situation = st.text_area("Tình hình tài chính của bạn (thu nhập, chi tiêu, tiết kiệm hàng tháng)?")
 
     if st.button("Generate Financial Plan"):
