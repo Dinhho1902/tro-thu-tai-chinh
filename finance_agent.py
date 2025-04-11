@@ -7,8 +7,8 @@ import agno
 from agno.models.openai import OpenAIChat
 
 # Set up the Streamlit app
-st.title("AI Personal Finance Planner 💰")
-st.caption("Manage your finances with AI Personal Finance Manager by creating personalized budgets, investment plans, and savings strategies using GPT-4o")
+st.title("Trợ thủ tài chính 💰")
+st.caption("Lên kế hoạch tài chính cho cuộc sống hạnh phúc, cân bằng và thành công")
 
 # Get OpenAI API key from user
 openai_api_key = st.secrets["openai_secret_key"]
@@ -29,6 +29,7 @@ if openai_api_key:
         """
         ),
         instructions=[
+            "Give answers in Vietnamese",
             "Given a user's financial goals and current financial situation, first generate a list of 3 search terms related to those goals.",
             "For each search term, `search_google` and analyze the results.",
             "From the results of all searches, return the 10 most relevant results to the user's preferences.",
@@ -48,6 +49,7 @@ if openai_api_key:
         """
         ),
         instructions=[
+            "Give answers in Vietnamese",
             "Given a user's financial goals, current financial situation, and a list of research results, generate a personalized financial plan that includes suggested budgets, investment plans, and savings strategies.",
             "Ensure the plan is well-structured, informative, and engaging.",
             "Ensure you provide a nuanced and balanced plan, quoting facts where possible.",
@@ -59,8 +61,8 @@ if openai_api_key:
     )
 
     # Input fields for the user's financial goals and current financial situation
-    financial_goals = st.text_input("What are your financial goals?")
-    current_situation = st.text_area("Describe your current financial situation")
+    financial_goals = st.text_input("Mục tiêu tài chính của bạn")
+    current_situation = st.text_area("Tình hình tài chính của bạn (thu nhập, chi tiêu, tiết kiệm hàng tháng)?")
 
     if st.button("Generate Financial Plan"):
         with st.spinner("Processing..."):
