@@ -1,7 +1,9 @@
 from textwrap import dedent
+import agno
 from agno.agent import Agent
 from agno.tools.serpapi import SerpApiTools
 import streamlit as st
+import agno
 from agno.models.openai import OpenAIChat
 
 # Set up the Streamlit app
@@ -9,10 +11,10 @@ st.title("AI Personal Finance Planner 💰")
 st.caption("Manage your finances with AI Personal Finance Manager by creating personalized budgets, investment plans, and savings strategies using GPT-4o")
 
 # Get OpenAI API key from user
-openai_api_key = st.write("DB username:", st.secrets["db_username"])
+openai_api_key = st.text_input("Enter OpenAI API Key to access GPT-4o", type="password")
 
 # Get SerpAPI key from the user
-serp_api_key = st.write("DB password:", st.secrets["db_password"])
+serp_api_key = st.text_input("Enter Serp API Key for Search functionality", type="password")
 
 if openai_api_key and serp_api_key:
     researcher = Agent(
