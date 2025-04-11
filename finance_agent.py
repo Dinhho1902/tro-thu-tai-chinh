@@ -13,10 +13,10 @@ st.caption("Manage your finances with AI Personal Finance Manager by creating pe
 # Get OpenAI API key from user
 openai_api_key = st.secrets["openai_secret_key"]
 
-# Get SerpAPI key from the user
-serp_api_key = openai_api_key = st.secrets["serp_api_key"]
+# # Get SerpAPI key from the user
+# serp_api_key = openai_api_key = st.secrets["serp_api_key"]
 
-if openai_api_key and serp_api_key:
+if openai_api_key:
     researcher = Agent(
         name="Researcher",
         role="Searches for financial advice, investment opportunities, and savings strategies based on user preferences",
@@ -34,7 +34,7 @@ if openai_api_key and serp_api_key:
             "From the results of all searches, return the 10 most relevant results to the user's preferences.",
             "Remember: the quality of the results is important.",
         ],
-        tools=[SerpApiTools(api_key=serp_api_key)],
+        # tools=[SerpApiTools(api_key=serp_api_key)],
         add_datetime_to_instructions=True,
     )
     planner = Agent(
